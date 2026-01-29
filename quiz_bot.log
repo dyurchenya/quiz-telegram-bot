@@ -1,0 +1,53 @@
+2026-01-29 15:46:58,032 - __main__ - INFO - Запуск бота...
+2026-01-29 15:46:58,228 - __main__ - INFO - Инициализация базы данных...
+2026-01-29 15:46:58,239 - __main__ - INFO - База данных инициализирована
+2026-01-29 15:46:58,239 - __main__ - INFO - Регистрация хендлеров...
+2026-01-29 15:46:58,240 - __main__ - INFO - Хендлеры зарегистрированы
+2026-01-29 15:46:58,241 - __main__ - INFO - Бот запущен и готов к работе!
+2026-01-29 15:46:58,241 - __main__ - INFO - Логи будут сохраняться в quiz_bot.log
+2026-01-29 15:46:58,241 - aiogram.dispatcher - INFO - Start polling
+2026-01-29 15:46:58,433 - aiogram.dispatcher - INFO - Run polling for bot @learn_trainingqbot id=8558776620 - 'training'
+2026-01-29 15:47:18,763 - aiogram.event - INFO - Update id=647734623 is handled. Duration 228 ms by bot id=8558776620
+2026-01-29 15:47:21,784 - aiogram.event - INFO - Update id=647734624 is handled. Duration 316 ms by bot id=8558776620
+2026-01-29 15:47:24,319 - aiogram.event - INFO - Update id=647734625 is handled. Duration 1451 ms by bot id=8558776620
+2026-01-29 15:47:26,600 - aiogram.event - INFO - Update id=647734626 is handled. Duration 1358 ms by bot id=8558776620
+2026-01-29 15:47:29,181 - aiogram.event - INFO - Update id=647734627 is handled. Duration 1673 ms by bot id=8558776620
+2026-01-29 15:47:31,445 - aiogram.event - INFO - Update id=647734628 is handled. Duration 1676 ms by bot id=8558776620
+2026-01-29 15:47:33,451 - aiogram.event - INFO - Update id=647734629 is handled. Duration 1355 ms by bot id=8558776620
+2026-01-29 15:47:35,741 - aiogram.event - INFO - Update id=647734630 is handled. Duration 1429 ms by bot id=8558776620
+2026-01-29 15:47:37,901 - aiogram.event - INFO - Update id=647734631 is handled. Duration 1372 ms by bot id=8558776620
+2026-01-29 15:47:44,654 - aiogram.event - INFO - Update id=647734632 is handled. Duration 2557 ms by bot id=8558776620
+2026-01-29 15:47:47,328 - aiogram.event - INFO - Update id=647734633 is handled. Duration 2156 ms by bot id=8558776620
+2026-01-29 15:47:49,809 - aiogram.event - INFO - Update id=647734634 is handled. Duration 1369 ms by bot id=8558776620
+2026-01-29 15:47:57,561 - aiogram.event - INFO - Update id=647734635 is handled. Duration 199 ms by bot id=8558776620
+2026-01-29 15:48:00,561 - aiogram.event - INFO - Update id=647734636 is handled. Duration 1363 ms by bot id=8558776620
+2026-01-29 15:48:03,043 - aiogram.event - INFO - Update id=647734637 is handled. Duration 1375 ms by bot id=8558776620
+2026-01-29 15:48:05,341 - aiogram.event - INFO - Update id=647734638 is handled. Duration 1363 ms by bot id=8558776620
+2026-01-29 15:48:07,778 - aiogram.event - INFO - Update id=647734639 is handled. Duration 1439 ms by bot id=8558776620
+2026-01-29 15:48:10,134 - aiogram.event - INFO - Update id=647734640 is handled. Duration 1486 ms by bot id=8558776620
+2026-01-29 15:48:12,675 - aiogram.event - INFO - Update id=647734641 is handled. Duration 1733 ms by bot id=8558776620
+2026-01-29 15:48:15,037 - aiogram.event - INFO - Update id=647734642 is handled. Duration 1494 ms by bot id=8558776620
+2026-01-29 15:48:17,398 - aiogram.event - INFO - Update id=647734643 is handled. Duration 1508 ms by bot id=8558776620
+2026-01-29 15:48:20,295 - aiogram.event - INFO - Update id=647734644 is handled. Duration 1791 ms by bot id=8558776620
+2026-01-29 15:48:23,173 - aiogram.event - INFO - Update id=647734645 is handled. Duration 1817 ms by bot id=8558776620
+2026-01-29 15:48:27,131 - aiogram.event - INFO - Update id=647734646 is handled. Duration 578 ms by bot id=8558776620
+2026-01-29 15:48:28,710 - aiogram.event - INFO - Update id=647734647 is handled. Duration 122 ms by bot id=8558776620
+2026-01-29 15:48:30,197 - aiogram.event - INFO - Update id=647734648 is handled. Duration 196 ms by bot id=8558776620
+2026-01-29 15:49:01,377 - aiogram.event - INFO - Update id=647734649 is handled. Duration 104 ms by bot id=8558776620
+2026-01-29 15:49:09,907 - aiogram.event - INFO - Update id=647734650 is handled. Duration 225 ms by bot id=8558776620
+2026-01-29 15:49:20,859 - aiogram.event - INFO - Update id=647734651 is handled. Duration 1521 ms by bot id=8558776620
+2026-01-29 15:49:23,542 - aiogram.event - INFO - Update id=647734652 is handled. Duration 1455 ms by bot id=8558776620
+2026-01-29 15:49:27,419 - aiogram.event - INFO - Update id=647734653 is handled. Duration 1820 ms by bot id=8558776620
+2026-01-29 15:49:29,946 - aiogram.event - INFO - Update id=647734654 is handled. Duration 1761 ms by bot id=8558776620
+2026-01-29 15:49:32,476 - aiogram.event - INFO - Update id=647734655 is handled. Duration 1353 ms by bot id=8558776620
+2026-01-29 15:49:39,106 - aiogram.event - INFO - Update id=647734656 is handled. Duration 1364 ms by bot id=8558776620
+2026-01-29 15:49:41,717 - aiogram.event - INFO - Update id=647734657 is handled. Duration 1405 ms by bot id=8558776620
+2026-01-29 15:49:44,388 - aiogram.event - INFO - Update id=647734658 is handled. Duration 1491 ms by bot id=8558776620
+2026-01-29 15:49:47,359 - aiogram.event - INFO - Update id=647734659 is handled. Duration 1749 ms by bot id=8558776620
+2026-01-29 15:49:50,893 - aiogram.event - INFO - Update id=647734660 is handled. Duration 1738 ms by bot id=8558776620
+2026-01-29 15:49:58,565 - aiogram.event - INFO - Update id=647734661 is handled. Duration 139 ms by bot id=8558776620
+2026-01-29 15:50:01,701 - aiogram.event - INFO - Update id=647734662 is handled. Duration 192 ms by bot id=8558776620
+2026-01-29 15:50:09,981 - aiogram.event - INFO - Update id=647734663 is handled. Duration 134 ms by bot id=8558776620
+2026-01-29 15:50:10,169 - aiogram.event - INFO - Update id=647734664 is handled. Duration 95 ms by bot id=8558776620
+2026-01-29 15:50:13,083 - aiogram.event - INFO - Update id=647734665 is handled. Duration 95 ms by bot id=8558776620
+2026-01-29 15:50:24,169 - aiogram.event - INFO - Update id=647734666 is handled. Duration 97 ms by bot id=8558776620
