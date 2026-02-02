@@ -1,0 +1,47 @@
+2026-02-02 10:25:02,672 - __main__ - INFO - Запуск бота...
+2026-02-02 10:25:02,890 - __main__ - INFO - Инициализация базы данных...
+2026-02-02 10:25:02,904 - __main__ - INFO - База данных инициализирована
+2026-02-02 10:25:02,904 - __main__ - INFO - Регистрация хендлеров...
+2026-02-02 10:25:02,905 - __main__ - INFO - Хендлеры зарегистрированы
+2026-02-02 10:25:02,905 - __main__ - INFO - Бот запущен и готов к работе!
+2026-02-02 10:25:02,905 - __main__ - INFO - Логи будут сохраняться в quiz_bot.log
+2026-02-02 10:25:02,905 - aiogram.dispatcher - INFO - Start polling
+2026-02-02 10:25:03,115 - aiogram.dispatcher - INFO - Run polling for bot @learn_trainingqbot id=8558776620 - 'training'
+2026-02-02 10:25:11,685 - aiogram.event - INFO - Update id=647734667 is handled. Duration 226 ms by bot id=8558776620
+2026-02-02 10:25:13,959 - aiogram.event - INFO - Update id=647734668 is handled. Duration 84 ms by bot id=8558776620
+2026-02-02 10:25:26,409 - aiogram.event - INFO - Update id=647734669 is handled. Duration 96 ms by bot id=8558776620
+2026-02-02 10:25:28,298 - aiogram.event - INFO - Update id=647734670 is handled. Duration 92 ms by bot id=8558776620
+2026-02-02 10:25:44,337 - aiogram.event - INFO - Update id=647734671 is handled. Duration 94 ms by bot id=8558776620
+2026-02-02 10:29:49,258 - __main__ - INFO - Запуск бота...
+2026-02-02 10:29:49,461 - __main__ - INFO - Инициализация базы данных...
+2026-02-02 10:29:49,467 - __main__ - INFO - База данных инициализирована
+2026-02-02 10:29:49,467 - __main__ - INFO - Регистрация хендлеров...
+2026-02-02 10:29:49,468 - __main__ - INFO - Хендлеры зарегистрированы
+2026-02-02 10:29:49,468 - __main__ - INFO - Бот запущен и готов к работе!
+2026-02-02 10:29:49,468 - __main__ - INFO - Логи будут сохраняться в quiz_bot.log
+2026-02-02 10:29:49,468 - aiogram.dispatcher - INFO - Start polling
+2026-02-02 10:29:49,657 - aiogram.dispatcher - INFO - Run polling for bot @learn_trainingqbot id=8558776620 - 'training'
+2026-02-02 10:29:49,978 - aiogram.event - INFO - Update id=647734672 is handled. Duration 262 ms by bot id=8558776620
+2026-02-02 10:29:55,373 - aiogram.event - INFO - Update id=647734673 is handled. Duration 129 ms by bot id=8558776620
+2026-02-02 10:35:47,208 - __main__ - INFO - Запуск бота...
+2026-02-02 10:35:47,402 - __main__ - INFO - Инициализация базы данных...
+2026-02-02 10:35:47,406 - __main__ - INFO - База данных инициализирована
+2026-02-02 10:35:47,406 - __main__ - INFO - Регистрация хендлеров...
+2026-02-02 10:35:47,407 - __main__ - INFO - Хендлеры зарегистрированы
+2026-02-02 10:35:47,407 - __main__ - INFO - Бот запущен и готов к работе!
+2026-02-02 10:35:47,408 - __main__ - INFO - Логи будут сохраняться в quiz_bot.log
+2026-02-02 10:35:47,408 - aiogram.dispatcher - INFO - Start polling
+2026-02-02 10:35:47,609 - aiogram.dispatcher - INFO - Run polling for bot @learn_trainingqbot id=8558776620 - 'training'
+2026-02-02 10:35:51,827 - aiogram.event - INFO - Update id=647734675 is handled. Duration 194 ms by bot id=8558776620
+2026-02-02 10:36:00,412 - aiogram.event - INFO - Update id=647734676 is handled. Duration 87 ms by bot id=8558776620
+2026-02-02 10:36:01,914 - aiogram.event - INFO - Update id=647734677 is handled. Duration 99 ms by bot id=8558776620
+2026-02-02 10:37:05,038 - __main__ - INFO - Запуск бота...
+2026-02-02 10:37:05,247 - __main__ - INFO - Инициализация базы данных...
+2026-02-02 10:37:05,256 - __main__ - INFO - База данных инициализирована
+2026-02-02 10:37:05,256 - __main__ - INFO - Регистрация хендлеров...
+2026-02-02 10:37:05,257 - __main__ - INFO - Хендлеры зарегистрированы
+2026-02-02 10:37:05,258 - __main__ - INFO - Бот запущен и готов к работе!
+2026-02-02 10:37:05,258 - __main__ - INFO - Логи будут сохраняться в quiz_bot.log
+2026-02-02 10:37:05,258 - aiogram.dispatcher - INFO - Start polling
+2026-02-02 10:37:05,445 - aiogram.dispatcher - INFO - Run polling for bot @learn_trainingqbot id=8558776620 - 'training'
+2026-02-02 10:37:07,730 - aiogram.event - INFO - Update id=647734678 is handled. Duration 313 ms by bot id=8558776620

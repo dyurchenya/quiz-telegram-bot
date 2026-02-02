@@ -13,7 +13,8 @@ class Database:
         """Создание таблиц базы данных"""
         async with self._lock:
             async with aiosqlite.connect(self.db_name) as db:
-                # Устанавливаем настройки для SQLite
+                # Включаем поддержку внешних ключей
+                await db.execute("PRAGMA foreign_keys = ON")
                 await db.execute("PRAGMA journal_mode=WAL")
                 await db.execute("PRAGMA synchronous=NORMAL")
                 
@@ -51,12 +52,45 @@ class Database:
                         user_id INTEGER,
                         score INTEGER,
                         total_questions INTEGER,
-                        quiz_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                        quiz_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        FOREIGN KEY (user_id) REFERENCES user_stats (user_id)
                     )
                 ''')
                 
                 await db.commit()
-                print("Таблицы базы данных созданы успешно")
+                print("✅ Таблицы базы данных созданы успешно")
+                
+                # Проверяем и добавляем отсутствующие колонки
+                await self._migrate_database(db)
+    
+    async def _migrate_database(self, db):
+        """Миграция базы данных - добавление отсутствующих колонок"""
+        try:
+            # Проверяем существование колонок в user_stats
+            async with db.execute("PRAGMA table_info(user_stats)") as cursor:
+                columns = await cursor.fetchall()
+                column_names = [col[1] for col in columns]
+                
+                # Добавляем отсутствующие колонки
+                if 'username' not in column_names:
+                    await db.execute("ALTER TABLE user_stats ADD COLUMN username TEXT")
+                    print("✅ Добавлена колонка username в user_stats")
+                
+                if 'first_name' not in column_names:
+                    await db.execute("ALTER TABLE user_stats ADD COLUMN first_name TEXT")
+                    print("✅ Добавлена колонка first_name в user_stats")
+                
+                if 'last_name' not in column_names:
+                    await db.execute("ALTER TABLE user_stats ADD COLUMN last_name TEXT")
+                    print("✅ Добавлена колонка last_name в user_stats")
+                
+                if 'last_quiz_date' not in column_names:
+                    await db.execute("ALTER TABLE user_stats ADD COLUMN last_quiz_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+                    print("✅ Добавлена колонка last_quiz_date в user_stats")
+                
+                await db.commit()
+        except Exception as e:
+            print(f"⚠️ Ошибка при миграции базы данных: {e}")
     
     async def get_quiz_state(self, user_id: int):
         """Получить состояние квиза для пользователя"""
@@ -106,6 +140,7 @@ class Database:
                         (user_id, username, first_name, last_name, total_quizzes, total_correct, total_questions, best_score) 
                         VALUES (?, ?, ?, ?, 0, 0, 0, 0)
                     ''', (user_id, username or "", first_name or "", last_name or ""))
+                    print(f"👤 Создан новый пользователь: user_id={user_id}")
                 else:
                     # Обновляем только имя пользователя, если оно изменилось
                     await db.execute('''
@@ -154,16 +189,7 @@ class Database:
         async with self._lock:
             async with aiosqlite.connect(self.db_name) as db:
                 try:
-                    # Начинаем транзакцию для атомарности
-                    await db.execute("BEGIN TRANSACTION")
-                    
-                    # 1. Отмечаем квиз как завершенный
-                    await db.execute(
-                        'UPDATE quiz_state SET completed = 1 WHERE user_id = ?',
-                        (user_id,)
-                    )
-                    
-                    # 2. Получаем текущую статистику пользователя
+                    # Получаем текущую статистику пользователя
                     async with db.execute(
                         'SELECT total_quizzes, total_correct, total_questions, best_score FROM user_stats WHERE user_id = ?',
                         (user_id,)
@@ -171,7 +197,7 @@ class Database:
                         stats = await cursor.fetchone()
                     
                     if stats:
-                        # 3. Вычисляем новые значения статистики
+                        # Вычисляем новые значения статистики
                         current_total_quizzes = stats[0]
                         current_total_correct = stats[1]
                         current_total_questions = stats[2]
@@ -182,11 +208,11 @@ class Database:
                         new_total_questions = current_total_questions + total_questions
                         new_best_score = max(current_best_score, score)
                         
-                        print(f"Статистика обновления: user_id={user_id}, "
-                              f"было квизов={current_total_quizzes}, будет={new_total_quizzes}, "
+                        print(f"📊 Обновление статистики: user_id={user_id}, "
+                              f"было квизов={current_total_quizzes}, теперь={new_total_quizzes}, "
                               f"было правильных={current_total_correct}, добавилось={score}")
                         
-                        # 4. Обновляем статистику пользователя
+                        # Обновляем статистику пользователя
                         await db.execute('''
                             UPDATE user_stats 
                             SET total_quizzes = ?, 
@@ -197,14 +223,15 @@ class Database:
                             WHERE user_id = ?
                         ''', (new_total_quizzes, new_total_correct, new_total_questions, new_best_score, user_id))
                     else:
-                        # Создаем новую запись статистики (на всякий случай)
+                        # Создаем новую запись статистики
                         await db.execute('''
                             INSERT INTO user_stats 
                             (user_id, total_quizzes, total_correct, total_questions, best_score, last_quiz_date)
                             VALUES (?, 1, ?, ?, ?, CURRENT_TIMESTAMP)
                         ''', (user_id, score, total_questions, score))
+                        print(f"📊 Создана новая запись статистики для user_id={user_id}")
                     
-                    # 5. Обновляем результат последнего квиза в истории
+                    # Обновляем результат последнего квиза в истории
                     await db.execute('''
                         UPDATE quiz_history 
                         SET score = ?, quiz_date = CURRENT_TIMESTAMP
@@ -216,14 +243,19 @@ class Database:
                         )
                     ''', (score, user_id))
                     
-                    # Фиксируем транзакцию
+                    # Отмечаем квиз как завершенный
+                    await db.execute(
+                        'UPDATE quiz_state SET completed = 1 WHERE user_id = ?',
+                        (user_id,)
+                    )
+                    
                     await db.commit()
-                    print(f"Статистика успешно обновлена для user_id={user_id}")
+                    print(f"✅ Статистика успешно обновлена для user_id={user_id}")
                     
                 except Exception as e:
-                    # Откатываем транзакцию в случае ошибки
-                    await db.execute("ROLLBACK")
-                    print(f"Ошибка при обновлении статистики: {e}")
+                    print(f"❌ Ошибка при обновлении статистики: {e}")
+                    import traceback
+                    traceback.print_exc()
                     raise e
     
     async def get_user_stats(self, user_id: int):
